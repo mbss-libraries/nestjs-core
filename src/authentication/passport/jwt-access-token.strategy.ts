@@ -7,12 +7,12 @@ import { getManager } from 'typeorm';
 
 @Injectable()
 export class JwtAccessTokenStrategy extends PassportStrategy(Strategy, 'jwt-access-token') {
-	// constructor(private readonly userService: UsersService) {
-	// 	super({
-	// 		jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-	// 		secretOrKey: ACCESS_TOKEN_SECRET,
-	// 	});
-	// }
+	constructor() {
+		super({
+			jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+			secretOrKey: ACCESS_TOKEN_SECRET,
+		});
+	}
 
 	async validate(payload: IJWTAccessPayload) {
 		// const authUser = await this.userService.findOneById(payload.sub);
