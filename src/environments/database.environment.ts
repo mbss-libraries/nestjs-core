@@ -7,7 +7,6 @@ export const DB_PASSWORD: string = process.env.DB_PASSWORD || 'root';
 const DB_DATABASE: string = process.env.DB_DATABASE || 'master';
 
 export const DB_SCHEMA_MASTER: string = process.env.DB_SCHEMA_MASTER || 'master';
-export const DB_SCHEMA_WPM: string = process.env.DB_SCHEMA_WPM || 'wpm';
 
 //* ----- TypeORM -----
 const enviroment = {
