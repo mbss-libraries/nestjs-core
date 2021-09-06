@@ -14,8 +14,8 @@ export const returnResponse = <T extends string>(data: IResponse<T>, options: IR
 	return data;
 };
 
-interface IReturnResponseOptions {
+export interface IReturnResponseOptions {
 	excludeConvertToSmallUser?: string[];
 }
 
-type IResponse<T extends string> = IResponseIncludeModels<T> & { [key: string]: any };
+export type IResponse<T extends string> = IResponseIncludeModels<T> & { [key: string]: any };
