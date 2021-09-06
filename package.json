@@ -1,5 +1,5 @@
 {
-  "name": "@whit-apps/core",
+  "name": "@mbss-nestjs/core",
   "version": "1.0.0",
   "description": "Core package to add features to whit-apps basic framework",
   "main": "dist/index.js",
@@ -20,7 +20,7 @@
     "dist/**/*"
   ],
   "keywords": [
-    "whit-dev core package"
+    "MBSS-Library core package for nestjs"
   ],
   "author": "Michael Bigalke & Sven Stiels",
   "license": "ISC",
