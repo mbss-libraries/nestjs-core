@@ -1,0 +1,30 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"module": "commonjs",
+		"declaration": true,
+		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"target": "es2017",
+		"sourceMap": true,
+		"outDir": "./dist",
+		"baseUrl": "./",
+		"incremental": false,
+		"noLib": false,
+		"noImplicitAny": false,
+		"typeRoots": ["node_modules/@types", "types"],
+		"paths": {
+			"@common": ["src/common"],
+			"@config": ["src/config"],
+			"@environments": ["src/environments"],
+			"@helpers": ["src/helpers"],
+			"@User": ["src/modules/entities/users/user.entity"]
+		}
+	},
+	"include": ["src/**/*.ts", "src/services/reviews/index.js", "test"],
+	"compileOnSave": true,
+	"exclude": ["node_modules", "coverage", "document", "dist", "backup", "**/*.spec.ts"]
+}
