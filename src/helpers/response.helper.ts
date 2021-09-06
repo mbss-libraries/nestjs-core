@@ -9,7 +9,10 @@ import { clearModels } from './model.helper';
  *
  * Creator @sstiels
  */
-export const returnResponse = (data: IResponse, options: IReturnResponseOptions = {}): IResponse => {
+export const returnResponse = <T extends string>(
+	data: IResponse<T>,
+	options: IReturnResponseOptions = {},
+): IResponse<T> => {
 	clearModels(data, { excludeConvertToSmallUser: options.excludeConvertToSmallUser });
 	return data;
 };
@@ -18,4 +21,4 @@ interface IReturnResponseOptions {
 	excludeConvertToSmallUser?: string[];
 }
 
-type IResponse = IResponseIncludeModels & { [key: string]: any };
+type IResponse<T extends string> = IResponseIncludeModels<T> & { [key: string]: any };
