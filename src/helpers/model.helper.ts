@@ -1,16 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { TModelNames } from '@helpers';
 import _ from 'lodash';
-import { User } from 'src/modules/entities/users/user.entity';
 import { BaseEntity } from 'typeorm';
-// import { Car } from '../apps/department/models/Car';
-// import { CarRoom } from '../apps/department/models/CarRoom';
-// import { CarRoomItem } from '../apps/department/models/CarRoomItem';
-// import { Department } from '../apps/department/models/Department';
-// import { Equipment } from '../apps/department/models/Equipment';
-// import { Question } from '../apps/quiz/models/Question';
-// import { Tag } from '../apps/quiz/models/Tag';
-// import { TModelNames } from './declaration.helper';
 
 /**
  * Use this variable to automatically load relation ids
@@ -27,7 +17,12 @@ export type TLoadRelationIds = { id: string }[];
  * This interface should be implemented by all models, because missing functions are automatically pointed out.
  */
 export interface IBaseModel<T extends BaseEntity> {
+	id: string;
 	clear(): T;
+}
+
+export interface IBaseUser<T extends BaseEntity> extends IBaseModel<T> {
+	getSmallUser(): T;
 }
 
 /**
@@ -37,20 +32,20 @@ export interface IBaseModel<T extends BaseEntity> {
  *
  * Creator @sstiels
  */
-export const getModelByString = <T extends typeof BaseEntity>(model: TModelNames): T | undefined => {
-	if (model === 'User') return User as unknown as T;
+// export const getModelByString = <T extends typeof BaseEntity>(model: TModelNames): T | undefined => {
+// 	if (model === 'User') return User as unknown as T;
 
-	// if (model === 'Department') return Department as unknown as T;
-	// if (model === 'Car') return Car as unknown as T;
-	// if (model === 'CarRoom') return CarRoom as unknown as T;
-	// if (model === 'CarRoomItem') return CarRoomItem as unknown as T;
-	// if (model === 'Equipment') return Equipment as unknown as T;
+// 	// if (model === 'Department') return Department as unknown as T;
+// 	// if (model === 'Car') return Car as unknown as T;
+// 	// if (model === 'CarRoom') return CarRoom as unknown as T;
+// 	// if (model === 'CarRoomItem') return CarRoomItem as unknown as T;
+// 	// if (model === 'Equipment') return Equipment as unknown as T;
 
-	// if (model === 'Question') return Question as unknown as T;
-	// if (model === 'Tag') return Tag as unknown as T;
+// 	// if (model === 'Question') return Question as unknown as T;
+// 	// if (model === 'Tag') return Tag as unknown as T;
 
-	return undefined;
-};
+// 	return undefined;
+// };
 
 /**
  * This function can be applied in the clear function of a model if one of the relations is a "Promise<Model[]">.
@@ -88,7 +83,7 @@ export const clearModels = (payload: unknown, options: IClearModelsOptions = {})
 						typeof (model as any).clear === 'function'
 					) {
 						(model as any).clear();
-						if (model instanceof User) {
+						if (isUser(model)) {
 							if (!options.excludeConvertToSmallUser?.includes(model.id)) {
 								value[key] = model.getSmallUser() as never;
 							}
@@ -112,4 +107,8 @@ export const mapChildrenIdsFromModel = <T extends BaseEntity>(models: T[], child
 };
 interface IClearModelsOptions {
 	excludeConvertToSmallUser?: string[];
+}
+
+function isUser(arg: any): arg is IBaseUser<any> {
+	return arg && arg.getSmallUser && typeof arg.getSmallUser == 'function';
 }
