@@ -20,8 +20,7 @@
 			"@common": ["src/common"],
 			"@config": ["src/config"],
 			"@environments": ["src/environments"],
-			"@helpers": ["src/helpers"],
-			"@User": ["src/modules/entities/users/user.entity"]
+			"@helpers": ["src/helpers"]
 		}
 	},
 	"include": ["src/**/*.ts", "src/services/reviews/index.js", "test"],
