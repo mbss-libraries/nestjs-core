@@ -1,3 +1,0 @@
-cafile=/etc/ssl/certs/ca-certificates.crt
-@graviton:registry=https://maven.zalando.net/repository/npm-internal/
-//maven.zalando.net/repository/npm-internal/:_authToken=UNUSED
