@@ -2,6 +2,8 @@ import { NODE_ENV, TYPEORM } from '@environments';
 import { Injectable } from '@nestjs/common';
 import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm';
 
+import * as fs from 'fs';
+
 const config = {
 	...TYPEORM,
 	type: 'postgres',
@@ -20,6 +22,7 @@ const config = {
 	autoLoadEntities: true,
 	keepConnectionAlive: true,
 	logging: false,
+	ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false, ca: process.env.SSL_CRT ? fs.readFileSync(process.env.SSL_CRT).toString() : '' } : false
 };
 
 @Injectable()
