@@ -4,7 +4,7 @@
 	"testEnvironment": "node",
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
 	"transform": {
-        "^.+\\.(t|j)sx?$": "ts-jest"
+        "^.+\\.(t)sx?$": "ts-jest"
 	},
 	"coverageDirectory": "./coverage",
 	"collectCoverage": true,
