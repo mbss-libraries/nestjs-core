@@ -9,7 +9,9 @@ const config = {
 	type: 'postgres',
 	// entities: getMetadataArgsStorage().tables.map((tbl) => tbl.target),
 	//entities: ['src/modules/**/*.entity.{ts,js}'],
-	entities: [process.env.NODE_ENV === 'production' ? 'dist/src/modules/**/.entity.{ts,js}' : 'src/modules/**/.entity.{ts,js}'],
+	entities: [
+		process.env.NODE_ENV === 'production' ? 'dist/src/modules/**/*.entity.{ts,js}' : 'src/modules/**/*.entity.{ts,js}',
+	],
 	// entities: ['../../**/*.entity.ts', '../../**/*.entity.ts'],
 	// migrations: ['../../migration/*.ts'],
 	// subscribers: ['../../subscriber/*.ts'],
@@ -23,7 +25,10 @@ const config = {
 	autoLoadEntities: true,
 	keepConnectionAlive: true,
 	logging: false,
-	ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false, ca: process.env.SSL_CRT ? fs.readFileSync(process.env.SSL_CRT).toString() : '' } : false
+	ssl:
+		process.env.NODE_ENV === 'production'
+			? { rejectUnauthorized: false, ca: process.env.SSL_CRT ? fs.readFileSync(process.env.SSL_CRT).toString() : '' }
+			: false,
 };
 
 @Injectable()
