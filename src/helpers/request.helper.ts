@@ -3,5 +3,8 @@
  */
 export class GlobalQueryDto<T extends string> {
 	extended?: string;
-	extendedExclude?: T[];
+	extendedInclude?: T[];
+	all?: string;
+	withDeleted?: string;
+	ignorePermissions?: string;
 }
