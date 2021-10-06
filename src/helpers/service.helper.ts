@@ -6,5 +6,5 @@ export interface IBaseService<T, R extends string> {
 	available(authUserId: string): Promise<T[]>;
 	findOneById(id: string | undefined): Promise<T | undefined>;
 	findByIds(ids: string[]): Promise<T[]>;
-	loadExtendedRelations(value: T | T[], extended?: boolean | R[]);
+	loadExtendedRelations(value: T | T[], extended?: string | R[]);
 }
