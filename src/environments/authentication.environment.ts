@@ -1,7 +1,7 @@
 export const BCRYPT_SALT: number = +(process.env.BCRYPT_SALT || 10);
 
 //* ---------- JWT - Token ----------
-export const ISSUER: string = process.env.ISSUER || 'fire-apps';
+export const ISSUER: string = process.env.ISSUER || 'RANDOM-ISSUER';
 export const AUDIENCE: string = process.env.AUDIENCE || 'http://github.com';
 
 export const ACCESS_TOKEN_SECRET: string = process.env.ACCESS_TOKEN_SECRET || 'access-token-key';
