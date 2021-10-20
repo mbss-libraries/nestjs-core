@@ -1,8 +1,9 @@
+//! --- Version: 1.0.0 ---
 import { NODE_ENV } from '@environments';
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, Logger, UnauthorizedException } from '@nestjs/common';
 import { Request, Response } from 'express';
 
-@Catch(HttpException)
+@Catch(UnauthorizedException)
 export class HttpUnauthorizedFilter implements ExceptionFilter<UnauthorizedException> {
 	catch(exception: HttpException, host: ArgumentsHost) {
 		const ctx = host.switchToHttp();
