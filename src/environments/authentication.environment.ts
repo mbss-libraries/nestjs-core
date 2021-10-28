@@ -1,3 +1,5 @@
+// import { IFilterPermission } from 'nestjs-rbac';
+
 export const BCRYPT_SALT: number = +(process.env.BCRYPT_SALT || 10);
 
 //* ---------- JWT - Token ----------
@@ -19,3 +21,10 @@ export const RESETPASS_TOKEN_EXPIRES_IN: string = process.env.RESETPASS_TOKEN_EX
 //* ---------- TOKENS ----------
 export const GOOGLE_CLIENT_ID: string = process.env.GOOGLE_CLIENT_ID || 'xxx';
 export const GOOGLE_CLIENT_SECRET: string = process.env.GOOGLE_CLIENT_SECRET || 'xxx';
+
+// export interface IStorageRbac {
+// 	roles: string[];
+// 	permissions: Record<string, unknown>;
+// 	grants: Record<string, unknown>;
+// 	filters: { [key: string]: any | IFilterPermission };
+// }
