@@ -14,7 +14,7 @@ import { BCRYPT_SALT } from '../environments'
  * @beta
  */
 export const hashPassword = async (password: string): Promise<string> => {
-	return await hash(password, BCRYPT_SALT)
+	return await hash(password, BCRYPT_SALT);
 }
 
 /**
