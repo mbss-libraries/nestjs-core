@@ -1,6 +1,6 @@
 {
 	"name": "@mbss/nestjs-core",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "MBSS-Library core package for nestjs, includes default functions to boost startup with nestjs backend from scratch",
 	"title": "MBSS-Nestjs Core package",
 	"keywords": [
