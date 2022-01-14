@@ -13,7 +13,7 @@ export type TModelsExistsUpdatedAt<T extends string> = {
 
 export type IResponseIncludeModels<T extends string> = {
 	[key in T]?: BaseEntity[];
-} & { override?: T[]; delete?: { [key in T]?: string[] } };
+} & { override?: T[]; delete?: { [key in T]?: BaseEntity[] } };
 
 export type TRequest = BaseRequest;
 
