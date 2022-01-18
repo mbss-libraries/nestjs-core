@@ -1,6 +1,6 @@
 {
 	"name": "@mbss/nestjs-core",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "MBSS-Library core package for nestjs, includes default functions to boost startup with nestjs backend from scratch",
 	"title": "MBSS-Nestjs Core package",
 	"keywords": [
@@ -21,7 +21,7 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"---------- PUBLISH -------------------------------------------------------------------------------------": "",
-		"publish": "npm publish --access public",
+		"npm:publish": "npm publish --access public",
 		"prepare": "npm run build",
 		"prepublishOnly:old": "npm run test & npm run lint",
 		"prepublishOnly": "npm run lint",
