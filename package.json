@@ -19,6 +19,7 @@
 	},
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"private": false,
 	"scripts": {
 		"---------- PUBLISH -------------------------------------------------------------------------------------": "",
 		"npm:publish": "npm publish --access public",
