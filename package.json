@@ -23,7 +23,7 @@
 	"scripts": {
 		"---------- PUBLISH -------------------------------------------------------------------------------------": "",
 		"npm:publish": "npm publish --access public",
-		"prepare2": "npm run build",
+		"prepare": "npm run build",
 		"prepublishOnly:old": "npm run test & npm run lint",
 		"prepublishOnly": "npm run lint",
 		"preversion": "npm run lint",
@@ -31,7 +31,7 @@
 		"postversion": "git push && git push --tags",
 		"---------- TEST -------------------------------------------------------------------------------------": "",
 		"test": "jest --config jestconfig.json",
-		"build2": "tsc && tsc-alias",
+		"build": "tsc && tsc-alias",
 		"format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
 		"lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
 		"lint:fix": "tslint --fix -p tsconfig.json -c tslint.json"
